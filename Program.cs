@@ -6,7 +6,7 @@ const int NumArgs = 4;
 
 #if DEBUG
 Environment.CurrentDirectory = "../../../DebugWorkDir";
-args = ["game_config.json", "random_engine.json", "random_engine.json", "1"];
+args = ["game_config.json", "engine_rulebase.json", "engine_rulebase.json", "10"];
 #endif
 
 if (args.Length < NumArgs)

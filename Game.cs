@@ -202,7 +202,7 @@ namespace GomokuServer
                 }
             }
 
-            gameLog.WriteLine($"{rootPos} {string.Join("", moves)}");
+            gameLog.WriteLine($"{rootPos} {string.Join(" ", moves)}");
 
             return true;
         }

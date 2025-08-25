@@ -27,7 +27,6 @@ while True:
 
     if cmd[0] == "go":
         time_limit = int(cmd[1])
-        time.sleep(time_limit / 1000)  # 特に意味もなく待つ
 
         move = random.choice(list(empties))
         empties.discard(move)
