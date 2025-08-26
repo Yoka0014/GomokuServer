@@ -33,6 +33,7 @@ namespace GomokuServer
 
             _process = Process.Start(psi);
             _process!.OutputDataReceived += Process_OutputDataRecieved;
+            _process!.ErrorDataReceived += Process_ErrorDataRecieved;
             _process.BeginOutputReadLine();
         }
 
@@ -117,6 +118,13 @@ namespace GomokuServer
                     OnNonResponceCommandRecieved(e.Data);
                 }
             }
+        }
+
+        void Process_ErrorDataRecieved(object sender, DataReceivedEventArgs e)
+        {
+            if (e.Data is null)
+                return;
+            Console.Error.WriteLine($"{_process!.ProcessName}(PID: {_process.Id}): {e.Data}");
         }
 
         void OnNonResponceCommandRecieved(string cmd)
