@@ -35,6 +35,7 @@ namespace GomokuServer
             _process!.OutputDataReceived += Process_OutputDataRecieved;
             _process!.ErrorDataReceived += Process_ErrorDataRecieved;
             _process.BeginOutputReadLine();
+            _process.BeginErrorReadLine();
         }
 
         public void Kill() => _process?.Kill();
