@@ -25,7 +25,8 @@ namespace GomokuServer
                 CreateNoWindow = true,
                 UseShellExecute = false,
                 RedirectStandardInput = true,
-                RedirectStandardOutput = true
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
             };
 
             if (!string.IsNullOrEmpty(_workDir))
