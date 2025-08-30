@@ -121,7 +121,10 @@ namespace GomokuServer
 
             var pos = new Position(_config.BoardSize);
             var openingIdx = 0;
-            Random.Shared.Shuffle(openings);
+
+            if(_config.ShuffleOpenings)
+                Random.Shared.Shuffle(openings);
+
             for (var gameID = 0; gameID < numGames; gameID++)
             {
                 if (!_config.SwapPlayer || !_config.UseSamePositionWhenSwapPlayer || gameID % 2 == 0)
@@ -129,7 +132,8 @@ namespace GomokuServer
                     openings[openingIdx++].CopyTo(pos);
                     if (openingIdx == openings.Length)
                     {
-                        Random.Shared.Shuffle(openings);
+                        if(_config.ShuffleOpenings)
+                            Random.Shared.Shuffle(openings);
                         openingIdx = 0;
                     }
                 }
