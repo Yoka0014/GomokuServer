@@ -141,7 +141,10 @@ namespace GomokuServer
                 Console.WriteLine($"Game {gameID + 1}");
 
                 if (!PlayOneGame(pos, (_config.SwapPlayer && gameID % 2 == 1) ? [.. players.Reverse()] : players, gameLog))
-                    return false;
+                {
+                    Console.WriteLine($"Game {gameID} was suspended.");
+                    continue;
+                }
 
                 Console.WriteLine("////////////////////");
                 foreach ((var engine, var stats) in players.Select(x => (x.Engine, x.Stats)))
